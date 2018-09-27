@@ -1,0 +1,14 @@
+resources:
+- name: solder
+  type: git
+  source:
+    uri: "https://github.com/venkatpathy/solder"
+    branch: master
+
+jobs:
+- name: test
+  plan:
+  - get: solder
+    trigger: true
+  - task: test
+    file: solder/ci/task.yml
