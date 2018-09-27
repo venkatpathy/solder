@@ -8,8 +8,11 @@ resources:
 
 jobs:
 - name: build
+  serial: true
   plan:
-  - get: solder
-    trigger: true
+  - aggregate:
+    - get: solder
   - task: build
     file: solder/ci/build.yml
+    params:
+      PROJECT_TYPE: GRADLE

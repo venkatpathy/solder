@@ -5,11 +5,7 @@ image_resource:
   source:
     repository: openjdk
     tag: 8-jdk
-inputs:
-  - name: repo
 outputs:
   - name: out
 run:
-  path: /bin/bash
-  args:
-    - solder/ci/build.sh
+  path: solder/ci/build.sh
