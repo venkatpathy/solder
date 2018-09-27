@@ -7,4 +7,4 @@ image_resource:
 inputs:
 - name: solder
 run:
-  path: solder/ci/unit.sh
+  path: solder/ci/test.sh
