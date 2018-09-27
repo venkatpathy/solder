@@ -1,3 +1,4 @@
+---
 resources:
 - name: solder
   type: git
@@ -6,9 +7,9 @@ resources:
     branch: master
 
 jobs:
-- name: test
+- name: build
   plan:
   - get: solder
     trigger: true
-  - task: test
-    file: solder/ci/task.yml
+  - task: build
+    file: solder/ci/build.yml
