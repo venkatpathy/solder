@@ -3,4 +3,4 @@
 echo RUNNING UNIT TESTS
 cd solder
 pwd
-gradle test
+./gradlew test
