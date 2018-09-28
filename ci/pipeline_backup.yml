@@ -5,6 +5,16 @@ resources:
     branch: master
     uri: https://github.com/venkatpathy/solder.git
 
+- name: deploy-cf
+  type: cf
+  source:
+    api: {{API_CF}}
+    username: {{USER_CF}}
+    password: {{PASSWORD_CF}}
+    organization: {{ORG_CF}}
+    space: {{SPACE_CF}}
+    skip_cert_check: false
+
 jobs:
 - name: Unit Tests
   public: false
@@ -22,3 +32,7 @@ jobs:
       trigger: true
     - task: Build Code
       file: solder/ci/task_buildcode.yml
+    - put: deploy-cf
+      params:
+        manifest: solder/ci/cf_manifest.yml
+        path: artifacts/*.jar

@@ -2,9 +2,9 @@
 platform: linux
 image_resource:
   type: docker-image
-  source:
-    repository: busybox
+  source: {repository: frekele/gradle}
 inputs:
 - name: solder
+
 run:
-  path: solder/ci/test.sh
+  path: solder/ci/run-unit-tests.sh
